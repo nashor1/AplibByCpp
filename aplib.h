@@ -1,3 +1,14 @@
+/*
+ * aPLib compression library  -  the smaller the better :)
+ *
+ * ELF 64-bit format header file
+ *
+ * Copyright (c) 1998-2014 Joergen Ibsen
+ * All Rights Reserved
+ *
+ * http://www.ibsensoftware.com/
+ */
+
 #ifndef APLIB_H_INCLUDED
 #define APLIB_H_INCLUDED
 
@@ -9,40 +20,40 @@ extern "C" {
 # define APLIB_ERROR ((unsigned int) (-1))
 #endif
 
-    unsigned int __cdecl aP_pack(const void* source,
+    unsigned int aP_pack(const void* source,
         void* destination,
         unsigned int length,
         void* workmem,
-        int(__cdecl* callback)(unsigned int, unsigned int, unsigned int, void*),
+        int (*callback)(unsigned int, unsigned int, unsigned int, void*),
         void* cbparam);
 
-    unsigned int __cdecl aP_workmem_size(unsigned int inputsize);
+    unsigned int aP_workmem_size(unsigned int inputsize);
 
-    unsigned int __cdecl aP_max_packed_size(unsigned int inputsize);
+    unsigned int aP_max_packed_size(unsigned int inputsize);
 
-    unsigned int __cdecl aP_depack_asm(const void* source, void* destination);
+    unsigned int aP_depack_asm(const void* source, void* destination);
 
-    unsigned int __cdecl aP_depack_asm_fast(const void* source, void* destination);
+    unsigned int aP_depack_asm_fast(const void* source, void* destination);
 
-    unsigned int __cdecl aP_depack_asm_safe(const void* source,
+    unsigned int aP_depack_asm_safe(const void* source,
         unsigned int srclen,
         void* destination,
         unsigned int dstlen);
 
-    unsigned int __cdecl aP_crc32(const void* source, unsigned int length);
+    unsigned int aP_crc32(const void* source, unsigned int length);
 
-    unsigned int __cdecl aPsafe_pack(const void* source,
+    unsigned int aPsafe_pack(const void* source,
         void* destination,
         unsigned int length,
         void* workmem,
-        int(__cdecl* callback)(unsigned int, unsigned int, unsigned int, void*),
+        int (*callback)(unsigned int, unsigned int, unsigned int, void*),
         void* cbparam);
 
-    unsigned int __cdecl aPsafe_check(const void* source);
+    unsigned int aPsafe_check(const void* source);
 
-    unsigned int __cdecl aPsafe_get_orig_size(const void* source);
+    unsigned int aPsafe_get_orig_size(const void* source);
 
-    unsigned int __cdecl aPsafe_depack(const void* source,
+    unsigned int aPsafe_depack(const void* source,
         unsigned int srclen,
         void* destination,
         unsigned int dstlen);
